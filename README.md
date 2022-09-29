@@ -1,0 +1,2 @@
+# MyAwesomeApp
+new project
