@@ -15,7 +15,7 @@ sh "${mvnHome}/bin/mvn sonar:sonar -f MyAwesomeApp/pom.xml"
 }
 stage ('DEV Deploy')  {
       echo "deploying to DEV Env "
-      deploy adapters: [tomcat8(credentialsId: 'TomcatCred', path: '', url: 'http://52.207.185.94:8080')], contextPath: null, war: '**/*.war'
+      deploy adapters: [tomcat8(credentialsId: 'TomcatCred', path: '', url: 'http://34.201.67.49:8080')], contextPath: null, war: '**/*.war'
     }
 stage ('DEV Approve') {
 echo "Taking approval from DEV"
@@ -26,7 +26,7 @@ input message: 'Do you want to deploy?', submitter: 'admin'
 stage ('Slack Notification') {
 
 
-    slackSend(channel:'myawesomeapp', message: "Job is successful, here is the info -  Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+    slackSend(channel:'myawesomeapp634', message: "Job is successful, here is the info -  Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
 
   }
 
